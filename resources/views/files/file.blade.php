@@ -53,27 +53,30 @@
                         En este espacio se muestran los diferentes documentos enviados a Direccion de la Unidad Educativa Alemania
                     </p>
             
-                    <table class="table table-striped">
+                    <table class="table table-striped text-center">
                        <thead>
                         <tr>
                             <th>id</th>
                             <th>Descripcion</th>
                             <th>Fecha</th>
+                            <th>ver</th>
+                            <th>eliminar</th>
                         </tr>
                        </thead>
                         <tbody class="text-gray-500 text-sm">
-                            <tr>
-                                <th>1</th>
-                                <th>Informe Primer Trimestre</th>
-                            </tr>
-                            <tr>
-                                <th>2</th>
-                                <th>centralizador Primer Trimestre</th>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <th>Aprovechamiento Primer Trimestre</th>
-                            </tr>
+                        @foreach ($files as $file)
+                        <tr>
+                            <td>{{$file->id}}</td>
+                            <td>{{$file->name}}</td>
+                            <td>{{$file->created_at}}</td>
+                            <td>
+                                <a href="storage/{{Auth::id()}}/{{$file->name}}" class="btn btn-sm btm-outline-secondary"> ver</a>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-sm btm-outline-danger"> eliminar</a>
+                            </td>
+                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
