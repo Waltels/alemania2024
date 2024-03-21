@@ -46,6 +46,13 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('instructor.')
                 ->prefix('instructor')
                 ->group(base_path('routes/instructor.php'));
+
+            /* RUTAS DE files*/
+             Route::middleware('web', 'auth')
+             ->name('file.')
+             ->prefix('file')
+             ->group(base_path('routes/files.php'));
+                
         });
     }
 }

@@ -26,12 +26,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    /*RUTA DE ARCHIVOS*/
-    Route::get('/file', function () {
-        return view('file');
-    })->middleware('can:Profesor')->name('file');
-    /*RUTA DE UE ALEMANIA*/
-    Route::get('/alemania', function () {
-        return view('alemania');
-    })->name('alemania');
+
 });

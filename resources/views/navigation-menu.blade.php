@@ -15,15 +15,17 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    
                     @can('Profesor')
-                        <x-nav-link href="{{ route('file') }}" :active="request()->routeIs('file')">
+                        <x-nav-link href="{{ route('file.file') }}" :active="request()->routeIs('file')">
                             {{ __('Profesor') }}
                         </x-nav-link>
                     @endcan
                    
-                    <x-nav-link href="{{ route('alemania') }}" :active="request()->routeIs('alemania')">
+                    <x-nav-link href="{{ route('file.alemania') }}" :active="request()->routeIs('alemania')">
                         {{ __('U E Alemania') }}
                     </x-nav-link>
+                    
                 </div>
             </div>
 
@@ -155,12 +157,8 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('file') }}" :active="request()->routeIs('file')">
-                {{ __('Archivos') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('alemania') }}" :active="request()->routeIs('alemania')">
-                {{ __('Alemania') }}
-            </x-responsive-nav-link>
+
+           
         </div>
 
         <!-- Responsive Settings Options -->

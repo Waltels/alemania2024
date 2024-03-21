@@ -17,15 +17,16 @@
                         </div>
 
                         <div class="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">  
-                            <form class="space-y-6"  method="POST" action="#" enctype="multipart/form-data">
+                            <form class="space-y-6"  method="POST" action="{{route('file.update')}}" enctype="multipart/form-data">
+                               @csrf
                                 <div>
-                                    <h5 class="text-gray-500">Descripcion</h5>
-                                    <div class="mt-2">
+                                   <!--  <h5 class="text-gray-500">Descripcion</h5>
+                                   <div class="mt-2">
                                         <input id="email" name="email" type="text" placeholder="Escriba la descriocion del archivo" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    </div>
+                                    </div>-->
                                     <h5 class="text-gray-500">Archivo</h5>
                                     <div class="mt-2">
-                                        <input id="email" name="email" type="file" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <input name="files[]" multiple type="file"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                     </div>
                                     <div class="mt-6">
                                         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar Archivo</button>
@@ -79,13 +80,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-    
-
-    
-
-
 </x-app-layout>
