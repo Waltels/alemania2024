@@ -20,13 +20,17 @@
                             <form class="space-y-6"  method="POST" action="{{route('file.update')}}" enctype="multipart/form-data">
                                @csrf
                                 <div>
-                                   <!--  <h5 class="text-gray-500">Descripcion</h5>
-                                   <div class="mt-2">
-                                        <input id="email" name="email" type="text" placeholder="Escriba la descriocion del archivo" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    </div>-->
+                                   <h5 class="text-gray-500">Documento</h5>
+                                     <form class="max-w-sm mx-auto">
+                                        <select name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                          <option value="Info 1º Trimestre">Informe Trimestral</option>
+                                          <option value="Centra 1º Trimestre">Centralizador Trimestral</option>
+                                          <option value="Aprov. 1º Trimestre">Aprovechamiento Trimestral</option>
+                                        </select>
+                                      </form>
                                     <h5 class="text-gray-500">Archivo</h5>
                                     <div class="mt-2">
-                                        <input name="files[]" multiple type="file"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <input name="files[]" multiple type="file" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                     </div>
                                     <div class="mt-6">
                                         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar Archivo</button>
@@ -53,7 +57,7 @@
                         En este espacio se muestran los diferentes documentos enviados a Direccion de la Unidad Educativa Alemania
                     </p>
             
-                    <table class="table table-striped text-center">
+                    <table class="table table-bordered text-center">
                        <thead>
                         <tr>
                             <th>id</th>
@@ -67,7 +71,7 @@
                         @foreach ($files as $file)
                         <tr>
                             <td>{{$file->id}}</td>
-                            <td>{{$file->name}}</td>
+                            <td>{{$file->description}}</td>
                             <td>{{$file->created_at}}</td>
                             <td>
                                 <a href="storage/{{Auth::id()}}/{{$file->name}}" class="btn btn-sm btm-outline-secondary"> ver</a>

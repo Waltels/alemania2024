@@ -335,26 +335,19 @@ return [
             'active' => ['admin/users*'],
             
         ],
-       
-        /*menu archivos*/
         [
-            'text' => 'Archivos',
+            'text' => 'Documentos',
             'icon' => 'fas fa-file',
-            'submenu' => [
-                [
-                    'text' => 'Recividos',
-                    'icon' => 'fas fa-download',
-                    'url' => '#',
-                ],
-                
-                [
-                    'text' => 'Enviados',
-                    'icon' => 'fas fa-upload',
-                    'url' => '#',
-                ],
-            ],
+            'url' => '#',
         ],
-
+        [
+            'text' => 'Arch Recividos',
+            'icon' => 'fas fa-download',
+            'route' => 'admin.files.index',
+            'active' => ['admin/files*'],
+            
+        ],
+       
         /* Menu Paginas*/
         [
             'text' => 'Paginas',

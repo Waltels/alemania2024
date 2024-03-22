@@ -1,23 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Files;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\File;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
-use RealRashid\SweetAlert\Facades\Alert;
-
-class FilesController extends Controller
+class FileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
+    
     {
-        //
+        $files = File::all();
+        return view('admin.files.index', compact('files'));
     }
 
     /**
@@ -33,23 +31,7 @@ class FilesController extends Controller
      */
     public function store(Request $request)
     {
-        $max_size = (int)ini_get('upload_max_filesize') * 10240;
-        $files=$request->file('files');
-        $user_id=Auth::id();
-        
-        foreach ($files as $file) {
-
-            if (storage::putFileAs('/public/'.$user_id.'/', $file, $file->getClientOriginalName())) {
-                File::create([
-                    'name' =>$file->getClientOriginalName(),
-                    'description' =>$request->string('description'),
-                    'user_id'=> $user_id
-                    ]);
-            }
-        }
-
-        Alert::success('BIEN!!', 'Su archivo fue enviado correctamente');
-        return back();
+        //
     }
 
     /**
