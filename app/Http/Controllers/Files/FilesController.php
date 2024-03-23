@@ -8,6 +8,7 @@ use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+
 use RealRashid\SweetAlert\Facades\Alert;
 
 class FilesController extends Controller
@@ -17,7 +18,7 @@ class FilesController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

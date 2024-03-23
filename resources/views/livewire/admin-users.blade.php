@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
             <div class="form control">
-                <input wire:keydown='limpiar_page' wire:model='searh' class="form-control w-100" placeholder="EScriba un nombre">
+                <input wire:keydown='limpiar_page' wire:model='searh' class="form-control w-100" placeholder="Escriba un nombre">
             </div>
         </div>
         <div class="card-body">

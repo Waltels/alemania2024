@@ -4,9 +4,6 @@
             {{ __('Archivos') }}
         </h2>
     </x-slot>
-    
-
-
     <div class="py-5">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"> 
@@ -20,14 +17,14 @@
                             <form class="space-y-6"  method="POST" action="{{route('file.update')}}" enctype="multipart/form-data">
                                @csrf
                                 <div>
-                                   <h5 class="text-gray-500">Documento</h5>
-                                     <form class="max-w-sm mx-auto">
-                                        <select name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                          <option value="Info 1º Trimestre">Informe Trimestral</option>
-                                          <option value="Centra 1º Trimestre">Centralizador Trimestral</option>
-                                          <option value="Aprov. 1º Trimestre">Aprovechamiento Trimestral</option>
+                                    <h5 class="text-gray-500">Documento</h5>
+                                        <select name="description" id="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            @foreach ($documentos as $documento)
+                                                <option value="{{$documento->name}}">{{$documento->description}}</option>   
+                                            @endforeach  
                                         </select>
-                                      </form>
+                                        
+                                       <!-- {!! Form::select('Documento_id', $documento, null, ['class'=> 'form-imput block w-full mt-1']) !!}-->
                                     <h5 class="text-gray-500">Archivo</h5>
                                     <div class="mt-2">
                                         <input name="files[]" multiple type="file" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -60,11 +57,10 @@
                     <table class="table table-bordered text-center">
                        <thead>
                         <tr>
-                            <th>id</th>
-                            <th>Descripcion</th>
-                            <th>Fecha</th>
-                            <th>ver</th>
-                            <th>eliminar</th>
+                            <th>Nº de Documento</th>
+                            <th>Descripcion del Documento</th>
+                            <th>Fecha de Envio del Documento</th>
+                            
                         </tr>
                        </thead>
                         <tbody class="text-gray-500 text-sm">
@@ -73,12 +69,6 @@
                             <td>{{$file->id}}</td>
                             <td>{{$file->description}}</td>
                             <td>{{$file->created_at}}</td>
-                            <td>
-                                <a href="storage/{{Auth::id()}}/{{$file->name}}" class="btn btn-sm btm-outline-secondary"> ver</a>
-                            </td>
-                            <td>
-                                <a href="" class="btn btn-sm btm-outline-danger"> eliminar</a>
-                            </td>
                         </tr>
                         @endforeach
                         </tbody>

@@ -338,7 +338,7 @@ return [
         [
             'text' => 'Documentos',
             'icon' => 'fas fa-file',
-            'url' => '#',
+            'route' => 'admin.documentos.index',
         ],
         [
             'text' => 'Arch Recividos',

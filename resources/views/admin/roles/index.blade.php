@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+
     <div class='card'>
         <div class='card-header'>
             <a class="btn btn-success"  href="{{route('admin.roles.create')}}">Insertar nuevo Rol</a>

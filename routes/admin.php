@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DocumentoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\RoleController;
@@ -17,3 +18,6 @@ Route::resource('users', UserConstroller::class)->middleware('can:Administrador'
 
 /*RUTAS DIRECTOR*/
 Route::resource('files', FileController::class)->only('index', 'edit', 'update')->names('files');
+
+/*RUTAS DOCUMENTOS*/
+Route::resource('documentos', DocumentoController::class)->names('documentos');

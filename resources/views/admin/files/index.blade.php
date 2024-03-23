@@ -3,22 +3,26 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Arvivos recividos de las y los maestros</h1>
+    <p>CONTROL DE ARCHIVOS RECIVIDOS POR LA DIRECCION DE LA UNIDAD EDUCATIVA ALEMANIA</p>
 @stop
 
 @section('content')
     <div class="card">
+        <label class="ml-4 mt-2 text-lg">ARCHIVOS RECIBIDOS</label>
+        <div class="card-header">
+            <div class="form control">
+                <input wire:keydown='limpiar_page' wire:model='searh' class="form-control w-100" placeholder="Ecriba un nombre">
+            </div>
+        </div>
         <div class="card-body">
-            <label class="text-center">ARCHIVOS RECIBIDOS</label>
             <div class="table-responsive text-center">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>Nº de Documento</th>
                             <th>Maestra/o</th>
-                            <th>name</th>
-                            <th>description</th>
-                            <th>bajra</th>
+                            <th>Description del Documento</th>
+                            <th>Ver Documento</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,7 +30,6 @@
                         <tr>
                             <td>{{$file->id}}</td>
                             <td>{{$file->user->name}}</td>
-                            <td>{{$file->name}}</td>
                             <td>{{$file->description}}</td>
                             <td>
                                 <button class="btn btn-btn btn-success">Descargar</button>
